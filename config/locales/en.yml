@@ -50,7 +50,7 @@ en:
     didnt_get_confirmation: Didn't receive confirmation instructions?
     forgot_password: Forgot your password?
     login: Log in
-    logout: Logout
+    logout: Log out
     register: Sign up
     resend_confirmation: Resend confirmation instructions
     reset_password: Reset password
@@ -133,7 +133,7 @@ en:
     prompt: 'You are going to follow:'
   settings:
     authorized_apps: Authorized apps
-    back: Back to Mastodon
+    back: Back to Kirakiratter
     edit_profile: Edit profile
     export: Data export
     import: Import
