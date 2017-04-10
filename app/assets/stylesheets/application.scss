@@ -98,14 +98,13 @@ table {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: $color1 image-url('background-photo.jpeg');
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url("akari-consumes.png")
   background-size: cover;
   background-attachment: fixed;
   font-size: 13px;
   line-height: 18px;
   font-weight: 400;
   color: $color5;
-  padding-bottom: 140px;
   text-rendering: optimizelegibility;
   font-feature-settings: "kern";
   text-size-adjust: none;
