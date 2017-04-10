@@ -39,38 +39,6 @@
           ·
           = link_to t('about.about_this'), about_more_path
 
-  %h3= t('about.features_headline')
-
-  .features-list
-    .features-list__column
-      %ul.fa-ul
-        %li
-          = fa_icon('li check-square')
-          = t 'about.features.chronology'
-        %li
-          = fa_icon('li check-square')
-          = t 'about.features.public'
-        %li
-          = fa_icon('li check-square')
-          = t 'about.features.characters'
-        %li
-          = fa_icon('li check-square')
-          = t 'about.features.gifv'
-    .features-list__column
-      %ul.fa-ul
-        %li
-          = fa_icon('li check-square')
-          = t 'about.features.privacy'
-        %li
-          = fa_icon('li check-square')
-          = t 'about.features.blocks'
-        %li
-          = fa_icon('li check-square')
-          = t 'about.features.ethics'
-        %li
-          = fa_icon('li check-square')
-          = t 'about.features.api'
-
   - unless @instance_presenter.site_description.blank?
     %h3= t('about.description_headline', domain: Rails.configuration.x.local_domain)
     %p= @instance_presenter.site_description.html_safe
