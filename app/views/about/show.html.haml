@@ -17,12 +17,12 @@
 .wrapper
   %h1
     = image_tag 'logo.png'
-    Mastodon
+    Kirakiratter
 
   %p= t('about.about_mastodon').html_safe
 
   .screenshot-with-signup
-    .mascot= image_tag 'fluffy-elephant-friend.png'
+    .mascot= image_tag 'ichigo-with-axe.png'
 
     - if @instance_presenter.open_registrations
       = render 'registration'
