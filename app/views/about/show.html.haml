@@ -9,7 +9,7 @@
   %meta{ property: 'og:type', content: 'website' }/
   %meta{ property: 'og:title', content: Rails.configuration.x.local_domain }/
   %meta{ property: 'og:description', content: strip_tags(@instance_presenter.site_description.blank? ? t('about.about_mastodon') : @instance_presenter.site_description) }/
-  %meta{ property: 'og:image', content: asset_url('mastodon_small.jpg') }/
+  %meta{ property: 'og:image', content: asset_url('kirakiratter-rabbit.png') }/
   %meta{ property: 'og:image:width', content: '400' }/
   %meta{ property: 'og:image:height', content: '400' }/
   %meta{ property: 'twitter:card', content: 'summary' }/
@@ -21,7 +21,7 @@
   %p= t('about.about_mastodon').html_safe
 
   .screenshot-with-signup
-    .mascot= image_tag 'ichigo-with-axe.png'
+    .mascot= image_tag 'kirakiratter-rabbit.png'
 
     - if @instance_presenter.open_registrations
       = render 'registration'
