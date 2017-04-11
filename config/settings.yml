@@ -19,8 +19,8 @@ defaults: &defaults
     reblog: false
     favourite: false
     mention: false
-    follow_request: true
-    digest: true
+    follow_request: false
+    digest: false
   interactions:
     must_be_follower: false
     must_be_following: false
