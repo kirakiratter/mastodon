@@ -98,7 +98,7 @@ table {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), image-url("background.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), image-url("background.jpg") no-repeat center center fixed;
   background-size: cover;
   background-attachment: fixed;
   font-size: 13px;
