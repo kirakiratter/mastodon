@@ -1,14 +1,20 @@
 {
-	"name": "Mastodon",
-	"description": "Mastodon is a free, open-source social network server.",
+	"name": "ｷﾗｷﾗｯﾀｰ",
+	"description": "アイ！カツ！",
 	"icons": [
 		{
-			"src": "\/android-chrome-192x192.png",
+			"src": "/android-chrome-192x192.png",
 			"sizes": "192x192",
-			"type": "image\/png"
+			"type": "image/png"
+		},
+		{
+			"src": "/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
 		}
 	],
-	"theme_color": "#282c37",
+	"theme_color": "#fc217d",
+	"background_color": "#fc217d",
 	"display": "standalone",
 	"start_url": "/web/timelines/home"
 }
