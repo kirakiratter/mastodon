@@ -135,7 +135,7 @@ const en = {
   "onboarding.page_one.welcome": "Welcome to Kirakiratter!",
   "onboarding.page_one.federation": "Kirakiratter is a social network where you can write about all of your shining moments.",
   "onboarding.page_one.handle": "Also, {domain} is an independent Mastodon instance. Your full handle as seen from another instance is {handle}.",
-  "onboarding.page_two.compose": "Aikatsu and so can you, by pressing the \"katsu\" button. You can upload images, change privacy settings, and add content warnings with the icons below.",
+  "onboarding.page_two.compose": "Aikatsu and so can you, by pressing the 'katsu' button. You can upload images, change privacy settings, and add content warnings with the icons below.",
   "onboarding.page_three.search": "Use the search bar to find people and look through hashtags. You can interact with Aikatsu fans all over the world by searching for {introductions} and {jikoshokai}.",
   "onboarding.page_three.profile": "Edit your profile to change your avatar, bio, and display name. There, you will also find other preferences.",
   "onboarding.page_four.home": "Home timeline shows posts from people you follow",
@@ -150,7 +150,7 @@ const en = {
   "onboarding.page_six.various_app": "various mobile apps",
   "onboarding.skip": "Skip",
   "onboarding.page_two.example": "I'm H...Hoshimiya Ichigo! &#35;introductions &#35;自己紹介",
-  "onboarding.page_six.caution": "Make sure to katsu responsibly, and take breaks every once in a while, too. \"Beware the Blog!\""
+  "onboarding.page_six.caution": "Make sure to katsu responsibly, and take breaks every once in a while, too. 'Beware the Blog!'"
   "onboarding.page_six.aikatsu": "Please enjoy seeing everyone's katsus on Kirakiratter. Your passionate idol activities, Aikatsu! is about to start!",
 };
 
