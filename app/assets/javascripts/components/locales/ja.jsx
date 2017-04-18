@@ -41,7 +41,7 @@ const ja = {
   "follow_request.reject": "拒否",
   "getting_started.apps": "さまざまなアプリで利用できます。",
   "getting_started.heading": "スタート",
-  "getting_started.open_source_notice": "Kirakiratter はオープンソースソフトウェアです。誰でも GitHub（{github}）から開発に参加したり、問題を報告したりできます。 {apps}",
+  "getting_started.open_source_notice": "キラキラッターはオープンソースソフトウェアです。誰でも GitHub（{github}）から開発に参加したり、問題を報告したりできます。 {apps}",
   "home.column_settings.advanced": "上級者向け",
   "home.column_settings.basic": "シンプル",
   "home.column_settings.filter_regex": "正規表現でフィルター",
@@ -122,12 +122,12 @@ const ja = {
   "video_player.video_error": "動画の再生に失敗しました",
   "onboarding.done": "次へ",
   "onboarding.next": "次へ",
-  "onboarding.page_one.welcome": "Wようこそ、マストドンへ",
-  "onboarding.page_one.federation": "マストドンは誰でも参加出来るソーシャルネットワークです。",
-  "onboarding.page_one.handle": "ここは独立したインスタンスで、キラキラなつぶやきが集まる{domain}です。 別のインスタンスから見たあなたのIDは{handle}です。",
-  "onboarding.page_two.compose": "あなたの"アイ!"を、"カツ!"で投稿することができます。画像のアップロードや、カツ!の公開範囲を設定したり、CWは内容の警告を表示しつつ、[もっとみる]で発言内容を隠すことができます。",
+  "onboarding.page_one.welcome": "キラキラッターへ、ようこそ！",
+  "onboarding.page_one.federation": "キラキラッターはキラキラなつぶやきを通して、色々な人と交流できるSNSです。",
+  "onboarding.page_one.handle": "また、{domain}はマストドンインスタンスの内の1つです。 別のインスタンスから見たあなたのIDは{handle}です。",
+  "onboarding.page_two.compose": "あなたの\"アイ!\"を、\"カツ\"で投稿することができます。画像のアップロードや、カツの公開範囲を設定したり、CWは内容の警告を表示しつつ、[もっとみる]で発言内容を隠すことができます。",
   "onboarding.page_three.search": "検索欄はユーザー名や、使われているハッシュタグを検索できます。{jikoshokai}や、{introductions}で検索すれば、世界中のみんなとつながるきっかけになります。",
-  "onboarding.page_three.profile": ""プロフィールを編集"からは、アイコンや、自己紹介、名前の変更ができます。他の項目設定に移ることも可能です。",
+  "onboarding.page_three.profile": "\"プロフィールを編集\"からは、アイコンや、自己紹介、名前の変更ができます。他の項目設定に移ることも可能です。",
   "onboarding.page_four.home": "ホームには、あなたがフォローしている人の投稿が表示されます。",
   "onboarding.page_four.notifications": "通知には、あなたのアカウントへの通知が表示されます。",
   "onboarding.page_five.public_timelines": "ローカルタイムラインには、{domain}の全ユーザーの投稿が表示されます。連合タイムラインは、{domain}と結びついている別インスタンスユーザーの発言も表示されます。",
@@ -139,9 +139,9 @@ const ja = {
   "onboarding.page_six.apps_available": "iOS、Androidあるいは他のプラットフォームで使える{apps}があります。",
   "onboarding.page_six.various_app": "様々なモバイルアプリ",
   "onboarding.skip": "スキップ",
-  "onboarding.page_two.example": "ほ…星宮いちごです！ &#35;自己紹介 &#35;introductions",
+  "onboarding.page_two.example": "ほ…　星宮いちごです！ &#35;自己紹介 &#35;introductions",
   "onboarding.page_six.caution": "情報に流されすぎたり、夢中になりすぎたりせず、気を付けて使いましょう。「つぶやきにご用心！」"
-  "onboarding.page_six.aikatsu": "色々な人のカツ!が溢れているキラキラッターで、あなたの熱いアイドル活動、ｱｲｶﾂ!始まります。ﾌﾌｯﾋ",
+  "onboarding.page_six.aikatsu": "色々な人のカツが溢れているキラキラッターで、あなたの熱いアイドル活動、ｱｲｶﾂ!始まります。ﾌﾌｯﾋ",
 };
 
 export default ja;
