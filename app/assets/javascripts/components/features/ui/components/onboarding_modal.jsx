@@ -14,7 +14,8 @@ const messages = defineMessages({
   home_title: { id: 'column.home', defaultMessage: 'Home' },
   notifications_title: { id: 'column.notifications', defaultMessage: 'Notifications' },
   local_title: { id: 'column.community', defaultMessage: 'Local timeline' },
-  federated_title: { id: 'column.public', defaultMessage: 'Federated timeline' }
+  federated_title: { id: 'column.public', defaultMessage: 'Federated timeline' },
+  example_tweet: { id: 'onboarding.page_two.example', defaultMessage: 'I'm H...Hoshimiya Ichigo! &#35;introductions &#35;&#33258;&#24049;&#32057;&#20171;' }
 });
 
 const PageOne = ({ acct, domain }) => (
@@ -26,7 +27,7 @@ const PageOne = ({ acct, domain }) => (
     <div>
       <h1><FormattedMessage id='onboarding.page_one.welcome' defaultMessage='Welcome to Mastodon!' /></h1>
       <p><FormattedMessage id='onboarding.page_one.federation' defaultMessage='Mastodon is a social network that belongs to everyone.' /></p>
-      <p><FormattedMessage id='onboarding.page_one.handle' defaultMessage='You are on {domain}, one of many independent Mastodon instances. Your full handle is {handle}' values={{ domain, handle: <strong>{acct}@{domain}</strong> }}/></p>
+      <p><FormattedMessage id='onboarding.page_one.handle' defaultMessage='You are on {domain}, the most Aikatsu! Mastodon instance around. Your full handle is {handle}.' values={{ domain, handle: <strong>{acct}@{domain}</strong> }}/></p>
     </div>
   </div>
 );
@@ -40,7 +41,7 @@ const PageTwo = () => (
   <div className='onboarding-modal__page onboarding-modal__page-two'>
     <div className='figure non-interactive'>
       <ComposeForm
-        text='Awoo! #introductions'
+        text={intl.formatMessage(messages.example_tweet)}
         suggestions={Immutable.List()}
         mentionedDomains={[]}
         onChange={() => {}}
@@ -54,7 +55,7 @@ const PageTwo = () => (
       />
     </div>
 
-    <p><FormattedMessage id='onboarding.page_two.compose' defaultMessage='Write posts from the compose column. You can upload images, change privacy settings, and add content warnings with the icons below.' /></p>
+    <p><FormattedMessage id='onboarding.page_two.compose' defaultMessage='Aikatsu and so can you, by pressing the katsu button. You can upload images, change privacy settings, and add content warnings with the icons below.' /></p>
   </div>
 );
 
@@ -74,7 +75,7 @@ const PageThree = ({ me, domain }) => (
       </div>
     </div>
 
-    <p><FormattedMessage id='onboarding.page_three.search' defaultMessage='Use the search bar to find people and look at hashtags, such as {illustration} and {introductions}. To look for a person who is not on this instance, use their full handle.' values={{ illustration: <Permalink to='/timelines/tag/illustration' href='/tags/illustration'>#illustration</Permalink>, introductions: <Permalink to='/timelines/tag/introductions' href='/tags/introductions'>#introductions</Permalink> }}/></p>
+    <p><FormattedMessage id='onboarding.page_three.search' defaultMessage='Use the search bar to find people and look through hashtags. You can interact with Aikatsu fans all over the world by searching for {introductions} and {jikoshokai}.' values={{ jikoshokai: <Permalink to='/timelines/tag/&#33258;&#24049;&#32057;&#20171;' href='/tags/&#33258;&#24049;&#32057;&#20171;'>&#35;&#33258;&#24049;&#32057;&#20171;</Permalink>, introductions: <Permalink to='/timelines/tag/introductions' href='/tags/introductions'>#introductions</Permalink> }}/></p>
     <p><FormattedMessage id='onboarding.page_three.profile' defaultMessage='Edit your profile to change your avatar, bio, and display name. There, you will also find other preferences.' /></p>
   </div>
 );
@@ -125,19 +126,19 @@ const PageSix = ({ admin }) => {
   if (admin) {
     adminSection = (
       <p>
-        <FormattedMessage id='onboarding.page_six.admin' defaultMessage="Your instance's admin is {admin}." values={{ admin: <Permalink href={admin.get('url')} to={`/accounts/${admin.get('id')}`}>@{admin.get('acct')}</Permalink> }} />
+        <FormattedMessage id='onboarding.page_six.admin' defaultMessage="The Kirakiratter admin is {admin}." values={{ admin: <Permalink href={admin.get('url')} to={`/accounts/${admin.get('id')}`}>@{admin.get('acct')}</Permalink> }} />
         <br />
-        <FormattedMessage id='onboarding.page_six.read_guidelines' defaultMessage='Please, do not forget to read the {guidelines}!' values={{ guidelines: <a href='/about/more' target='_blank'><FormattedMessage id='onboarding.page_six.guidelines' defaultMessage='community guidelines' /></a> }}/>
+        <FormattedMessage id='onboarding.page_six.read_guidelines' defaultMessage='Please don't forget to read the {guidelines}.' values={{ guidelines: <a href='/about/more' target='_blank'><FormattedMessage id='onboarding.page_six.guidelines' defaultMessage='community guidelines' /></a> }}/>
       </p>
     );
   }
 
   return (
     <div className='onboarding-modal__page onboarding-modal__page-six'>
-      <h1><FormattedMessage id='onboarding.page_six.almost_done' defaultMessage='Almost done...' /></h1>
+      <h1><FormattedMessage id='onboarding.page_six.almost_done' defaultMessage='Let's Aikatsu!' /></h1>
       {adminSection}
-      <p><FormattedMessage id='onboarding.page_six.github' defaultMessage='Mastodon is free open-source software. You can report bugs, request features, or contribute to the code on {github}.' values={{ github: <a href='https://github.com/tootsuite/mastodon' target='_blank' rel='noopener'>GitHub</a> }} /></p>
-      <p><FormattedMessage id='onboarding.page_six.apps_available' defaultMessage='There are {apps} available for iOS, Android and other platforms. And now... Bon Appetoot!' values={{ apps: <a href='https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md' target='_blank' rel='noopener'><FormattedMessage id='onboarding.page_six.various_app' defaultMessage='various mobile apps' /></a> }} /></p>
+      <p><FormattedMessage id='onboarding.page_six.caution' defaultMessage='Make sure to katsu responsibly, and take breaks every once in a while, too. &#34;Beware the Blog!&#34;' /></p>
+      <p><FormattedMessage id='onboarding.page_six.aikatsu' defaultMessage='Please enjoy seeing everyone's katsus on Kirakiratter. Your passionate idol activities, Aikatsu! is about to start!' /></p>
     </div>
   );
 };
@@ -209,7 +210,7 @@ const OnboardingModal = React.createClass({
     if(hasMore) {
       nextOrDoneBtn = <a href='#' onClick={this.handleNext.bind(null, pages.length)} className='onboarding-modal__nav onboarding-modal__next'><FormattedMessage id='onboarding.next' defaultMessage='Next' /></a>;
     } else {
-      nextOrDoneBtn = <a href='#' onClick={this.handleNext.bind(null, pages.length)} className='onboarding-modal__nav onboarding-modal__done'><FormattedMessage id='onboarding.next' defaultMessage='Done' /></a>;
+      nextOrDoneBtn = <a href='#' onClick={this.handleNext.bind(null, pages.length)} className='onboarding-modal__nav onboarding-modal__done'><FormattedMessage id='onboarding.done' defaultMessage='Done' /></a>;
     }
 
     const styles = pages.map((page, i) => ({
