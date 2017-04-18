@@ -135,7 +135,7 @@ const PageSix = ({ admin }) => {
 
   return (
     <div className='onboarding-modal__page onboarding-modal__page-six'>
-      <h1><FormattedMessage id='onboarding.page_six.almost_done' defaultMessage='Let's Aikatsu!' /></h1>
+      <h1><FormattedMessage id='onboarding.page_six.almost_done' defaultMessage="Let's Aikatsu!" /></h1>
       {adminSection}
       <p><FormattedMessage id='onboarding.page_six.caution' defaultMessage='Make sure to katsu responsibly, and take breaks every once in a while, too. "Beware the Blog!"' /></p>
       <p><FormattedMessage id='onboarding.page_six.aikatsu' defaultMessage="Please enjoy seeing everyone's katsus on Kirakiratter. Your passionate idol activities, Aikatsu! is about to start!" /></p>
