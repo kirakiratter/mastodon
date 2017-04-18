@@ -25,9 +25,9 @@ const PageOne = ({ acct, domain }) => (
     </div>
 
     <div>
-      <h1><FormattedMessage id='onboarding.page_one.welcome' defaultMessage='Welcome to Mastodon!' /></h1>
-      <p><FormattedMessage id='onboarding.page_one.federation' defaultMessage='Mastodon is a social network that belongs to everyone.' /></p>
-      <p><FormattedMessage id='onboarding.page_one.handle' defaultMessage='You are on {domain}, the most Aikatsu! Mastodon instance around. Your full handle is {handle}.' values={{ domain, handle: <strong>{acct}@{domain}</strong> }}/></p>
+      <h1><FormattedMessage id='onboarding.page_one.welcome' defaultMessage='Welcome to Kirakiratter!' /></h1>
+      <p><FormattedMessage id='onboarding.page_one.federation' defaultMessage='Kirakiratter is a social network where you can write about all of your shining moments.' /></p>
+      <p><FormattedMessage id='onboarding.page_one.handle' defaultMessage='Also, {domain} is an independent Mastodon instance. Your full handle as seen from another instance is {handle}.' values={{ domain, handle: <strong>{acct}@{domain}</strong> }}/></p>
     </div>
   </div>
 );
@@ -55,7 +55,7 @@ const PageTwo = () => (
       />
     </div>
 
-    <p><FormattedMessage id='onboarding.page_two.compose' defaultMessage='Aikatsu and so can you, by pressing the katsu button. You can upload images, change privacy settings, and add content warnings with the icons below.' /></p>
+    <p><FormattedMessage id='onboarding.page_two.compose' defaultMessage='Aikatsu and so can you, by pressing the "katsu" button. You can upload images, change privacy settings, and add content warnings with the icons below.' /></p>
   </div>
 );
 
@@ -128,7 +128,7 @@ const PageSix = ({ admin }) => {
       <p>
         <FormattedMessage id='onboarding.page_six.admin' defaultMessage="The Kirakiratter admin is {admin}." values={{ admin: <Permalink href={admin.get('url')} to={`/accounts/${admin.get('id')}`}>@{admin.get('acct')}</Permalink> }} />
         <br />
-        <FormattedMessage id='onboarding.page_six.read_guidelines' defaultMessage='Please don't forget to read the {guidelines}.' values={{ guidelines: <a href='/about/more' target='_blank'><FormattedMessage id='onboarding.page_six.guidelines' defaultMessage='community guidelines' /></a> }}/>
+        <FormattedMessage id='onboarding.page_six.read_guidelines' defaultMessage="Please don't forget to read the {guidelines}." values={{ guidelines: <a href='/about/more' target='_blank'><FormattedMessage id='onboarding.page_six.guidelines' defaultMessage='community guidelines' /></a> }}/>
       </p>
     );
   }
@@ -137,8 +137,8 @@ const PageSix = ({ admin }) => {
     <div className='onboarding-modal__page onboarding-modal__page-six'>
       <h1><FormattedMessage id='onboarding.page_six.almost_done' defaultMessage='Let's Aikatsu!' /></h1>
       {adminSection}
-      <p><FormattedMessage id='onboarding.page_six.caution' defaultMessage='Make sure to katsu responsibly, and take breaks every once in a while, too. &#34;Beware the Blog!&#34;' /></p>
-      <p><FormattedMessage id='onboarding.page_six.aikatsu' defaultMessage='Please enjoy seeing everyone's katsus on Kirakiratter. Your passionate idol activities, Aikatsu! is about to start!' /></p>
+      <p><FormattedMessage id='onboarding.page_six.caution' defaultMessage='Make sure to katsu responsibly, and take breaks every once in a while, too. "Beware the Blog!"' /></p>
+      <p><FormattedMessage id='onboarding.page_six.aikatsu' defaultMessage="Please enjoy seeing everyone's katsus on Kirakiratter. Your passionate idol activities, Aikatsu! is about to start!" /></p>
     </div>
   );
 };
