@@ -37,7 +37,7 @@ PageOne.propTypes = {
   domain: React.PropTypes.string.isRequired
 };
 
-const PageTwo = () => (
+const PageTwo = ({ intl }) => (
   <div className='onboarding-modal__page onboarding-modal__page-two'>
     <div className='figure non-interactive'>
       <ComposeForm
@@ -58,6 +58,10 @@ const PageTwo = () => (
     <p><FormattedMessage id='onboarding.page_two.compose' defaultMessage='Write posts from the compose column. You can upload images, change privacy settings, and add content warnings with the icons below.' /></p>
   </div>
 );
+
+PageTwo.propTypes = {
+  intl: React.PropTypes.object.isRequired
+};
 
 const PageThree = ({ me, domain }) => (
   <div className='onboarding-modal__page onboarding-modal__page-three'>
@@ -196,7 +200,7 @@ const OnboardingModal = React.createClass({
 
     const pages = [
       <PageOne acct={me.get('acct')} domain={domain} />,
-      <PageTwo />,
+      <PageTwo intl={intl} />,
       <PageThree me={me} domain={domain} />,
       <PageFour domain={domain} intl={intl} />,
       <PageSix admin={admin} />

@@ -94,7 +94,7 @@ const ja = {
   "onboarding.page_three.profile": "「プロフィールを編集」からは、アイコンや、自己紹介、名前の変更ができます。他の項目設定に移ることも可能です。",
   "onboarding.page_three.search": "検索欄はユーザー名や、使われているハッシュタグを検索できます。{illustration}や、{introductions}で検索すれば、世界中のみんなとつながるきっかけになります。",
   "onboarding.page_two.compose": "あなたの「アイ」を、「カツ」で投稿することができます。画像のアップロードや、カツの公開範囲を設定したり、CWは内容の警告を表示しつつ、[もっとみる]で発言内容を隠すことができます。",
-  "onboarding.page_two.example": "ほ…　星宮いちごです！ &#35;自己紹介 &#35;introductions",
+  "onboarding.page_two.example": "ほ…星宮いちごです！ #自己紹介 #introductions",
   "onboarding.skip": "スキップ",
   "privacy.change": "投稿のプライバシーを変更",
   "privacy.direct.long": "メンションしたユーザーだけに公開",

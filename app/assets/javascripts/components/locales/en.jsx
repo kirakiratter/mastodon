@@ -104,7 +104,7 @@ const en = {
   "onboarding.page_three.profile": "Edit your profile to change your avatar, bio, and display name. There, you will also find other preferences.",
   "onboarding.page_three.search": "Use the search bar to find people and look through hashtags. You can interact with Aikatsu fans all over the world by searching for {introductions} and {illustration}.",
   "onboarding.page_two.compose": 'Aikatsu and so can you, by pressing the "katsu" button. You can upload images, change privacy settings, and add content warnings with the icons below.',
-  "onboarding.page_two.example": "I'm H...Hoshimiya Ichigo! &#35;introductions &#35;自己紹介",
+  "onboarding.page_two.example": "I'm H...Hoshimiya Ichigo! #introductions #自己紹介",
   "onboarding.skip": "Skip",
   "privacy.change": "Adjust status privacy",
   "privacy.direct.long": "Post to mentioned users only",
