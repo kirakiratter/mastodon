@@ -16,8 +16,6 @@ const messages = defineMessages({
   local_title: { id: 'column.community', defaultMessage: 'Local timeline' },
   federated_title: { id: 'column.public', defaultMessage: 'Federated timeline' },
   example_tweet: { id: 'onboarding.page_two.example', defaultMessage: 'Awoo! #introductions' },
-  example_hashtag_one: { id: 'onboarding.page_two.hashtag_one', defaultMessage: 'illustration' },
-  example_hashtag_two: { id: 'onboarding.page_two.hashtag_two', defaultMessage: 'introductions' },
 });
 
 const PageOne = ({ acct, domain }) => (
