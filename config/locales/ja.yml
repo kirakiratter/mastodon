@@ -284,7 +284,7 @@ ja:
     visibilities:
       private: 非公開 - フォロワーだけに公開
       public: 公開 - 公開タイムラインに投稿する
-      unlisted: 未収載 - トゥートは公開するが、公開タイムラインには表示しない
+      unlisted: 未収載 - カツは公開するが、公開タイムラインには表示しない
   stream_entries:
     click_to_show: クリックして表示
     reblogged: ブーストされました
