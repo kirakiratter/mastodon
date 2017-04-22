@@ -34,4 +34,8 @@ class User < ApplicationRecord
   def setting_auto_play_gif
     settings.auto_play_gif
   end
+
+  def setting_site_theme
+    settings.site_theme
+  end
 end
