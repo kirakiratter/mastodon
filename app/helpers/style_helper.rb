@@ -2,7 +2,7 @@
 
 module StyleHelper
   def stylesheet_for_user
-    theme = current_account.try(:user).try(:setting_site_theme)
+    theme = current_account.try(:user).try(:setting_site_theme) || Setting.site_theme
 
     if theme.present? && asset_exist?("themes/#{theme}.css")
       "themes/#{theme}"
