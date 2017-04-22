@@ -1,18 +1,13 @@
 # frozen_string_literal: true
 
 module StyleHelper
-  def stylesheet_for_user
-    theme = current_account.try(:user).try(:setting_site_theme) || Setting.site_theme
-
-    if asset_exist?("themes/#{theme}.css")
-      "themes/#{theme}"
-    else
-      stylesheet_for_layout
-    end
-  end
-
   def stylesheet_for_layout
-    if asset_exist? 'custom.css'
+    theme_name = current_account&.user&.setting_site_theme || Setting.site_theme
+    theme_path = "themes/#{theme_name}/application.css"
+
+    if asset_exist?(theme_path)
+      theme_path
+    elsif asset_exist? 'custom.css'
       'custom'
     else
       'application'
