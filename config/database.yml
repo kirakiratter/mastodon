@@ -4,7 +4,6 @@ default: &default
   timeout: 5000
   encoding: unicode
 
-
 development:
   <<: *default
   database: mastodon_development
