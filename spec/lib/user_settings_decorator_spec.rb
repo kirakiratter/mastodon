@@ -41,5 +41,12 @@ describe UserSettingsDecorator do
       settings.update(values)
       expect(user.settings['auto_play_gif']).to eq false
     end
+
+    it 'updates the user settings value for site theme' do
+      values = { 'setting_site_theme' => 'light' }
+
+      settings.update(values)
+      expect(user.settings['site_theme']).to eq 'light'
+    end
   end
 end
