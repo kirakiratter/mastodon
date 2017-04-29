@@ -44,7 +44,7 @@ class UserSettingsDecorator
   end
 
   def site_theme_preference
-    settings['site_theme']
+    settings['setting_site_theme']
   end
 
   def boolean_cast_setting(key)
