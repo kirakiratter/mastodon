@@ -14,12 +14,14 @@ module StyleHelper
   end
 
   def site_theme_for_user
-    current_account&.user&.setting_site_theme || Setting.site_theme
+    current_user&.account&.user&.setting_site_theme || Setting.site_theme
+  rescue
+    Setting.site_theme
   end
 
   THEME_COLORS = {
     'default' => '#282c37',
-    'kkt' => '#fc217d'
+    'kkt' => '#df57a4'
   }.freeze
 
   # For Android tab color
