@@ -2,10 +2,10 @@
 
 module StyleHelper
   def stylesheet_for_layout
-    theme_path = "themes/#{site_theme_for_user}/application.css"
+    theme_pack = "theme_#{site_theme_for_user}.css"
 
-    if asset_exist?(theme_path)
-      theme_path
+    if asset_exist? theme_pack
+      theme_pack
     elsif asset_exist? 'custom.css'
       'custom'
     else
@@ -30,10 +30,8 @@ module StyleHelper
   end
 
   def asset_exist?(path)
-    if Rails.configuration.assets.compile
-      Rails.application.precompiled_assets.include? path
-    else
-      Rails.application.assets_manifest.assets[path].present?
-    end
+    true if Webpacker::Manifest.lookup(path)
+  rescue Webpacker::FileLoader::NotFoundError
+    false
   end
 end
