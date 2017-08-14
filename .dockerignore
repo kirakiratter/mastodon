@@ -10,4 +10,5 @@ vendor/bundle
 *.swp
 *~
 postgres
+postgres-data
 redis
