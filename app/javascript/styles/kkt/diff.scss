@@ -984,8 +984,7 @@ body.about-body {
 
 .reply-indicator__content,
 .status__content {
-  a.status-link:not(.hashtag),
-  a.status-link:not(.mention) {
+  p a:not(.hashtag):not(.mention) {
     color: $highlight-text-color;
     .unhandled-link {
       color: $highlight-text-color;
