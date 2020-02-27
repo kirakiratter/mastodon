@@ -1,6 +1,6 @@
 // Commonly used web colors
 $black: #000000;            // Black
-$white: #ffffff;            // White
+$white: #3a3a3a;            // White
 $success-green: #79bd9a !default;    // Padua
 $error-red: #671160 !default;        // Cerise
 $warning-red: #671160 !default;      // Sunset Orange
@@ -18,19 +18,19 @@ $error-value-color: #671160 !default;
 $ui-base-color: #313543 !default;                  // Darkest
 $ui-base-lighter-color: lighten($ui-base-color, 40%) !default; // Lighter darkest
 $ui-primary-color: #2588D0 !default;            // Lighter
-$ui-secondary-color: #393F4F !default;        // Lightest
+$ui-secondary-color: darken($ui-base-color, 10%) !default;        // Lightest
 $ui-highlight-color: #2588D0 !default;
 
 // Variables for texts
-$primary-text-color: $white !default;
-$darker-text-color: darken($white, 15%) !default;
+$primary-text-color: #FFF !default;
+$darker-text-color: darken(#FFF, 15%) !default;
 $dark-text-color: #B7E1E8 !default;
 $secondary-text-color: #2588D0 !default;
 $highlight-text-color: #B7E1E8 !default;
 $action-button-color: lighten(desaturate($darker-text-color, 5%), 12%) !default;
 
 // For texts on inverted backgrounds
-$inverted-text-color: $white !default;
+$inverted-text-color: #FFF !default;
 $lighter-text-color: $primary-text-color !default;
 $light-text-color: $darker-text-color !default;
 

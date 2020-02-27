@@ -251,7 +251,7 @@ body.about-body {
   padding: 8px 0;
   color: $dark-text-color;
 
-  .fa {
+  .fa:not(.star-icon) {
     color: $ui-highlight-color;
   }
 }
@@ -464,6 +464,14 @@ body.about-body {
   color: $primary-text-color;
 }
 
+.column-header {
+  &.active {
+    .column-header__icon {
+      color: $ui-highlight-color;
+    }
+  }
+}
+
 .compose-form .compose-form__buttons-wrapper {
   background: darken($ui-base-color, 6%);
 }
@@ -514,7 +522,7 @@ body.about-body {
 
 .muted {
   .status__content p {
-    color: lighten($primary-text-color, 35%);
+    color: lighten($primary-text-color, 15%);
   }
 
   .status__content a,
@@ -762,7 +770,7 @@ body.about-body {
 }
 
 .icon-button {
-  &.active {
+  &.active:not(.star-icon) {
     color: $ui-highlight-color;
 
     &:hover {
