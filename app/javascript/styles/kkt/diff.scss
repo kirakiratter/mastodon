@@ -319,7 +319,9 @@ body.about-body {
 .account__avatar-overlay-base,
 .account__avatar-overlay-overlay,
 .activity-stream .status.light .status__avatar,
-.activity-stream .detailed-status.light .avatar
+.activity-stream .detailed-status.light .avatar,
+.account__avatar-composite,
+.account__avatar-composite div
 {
   border: solid 2px $panel-border;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
@@ -672,6 +674,12 @@ body.about-body {
 .account__header__bar,
 .hero-widget {
   @include panel-format();
+
+  &.status-direct {
+    &:not(.read) {
+      @include panel-format();
+    }
+  }
 }
 
 .landing .hero-widget__text {
