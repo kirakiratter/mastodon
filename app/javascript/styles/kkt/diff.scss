@@ -296,6 +296,39 @@ body.about-body {
     }
   }
 
+  .public-account-header {
+
+    &__bar {
+      .avatar img {
+        border-radius: 8px;
+        border: 2px solid $panel-border;
+      }
+    }
+
+    &__tabs__tabs {
+      .counter {
+        border-right: none;
+
+        &.active::after {
+          border-bottom: 4px solid $panel-border;
+        }
+
+        &:hover::after {
+          border-bottom: 4px solid lighten($panel-border, 10%);
+        }
+
+        &::after {
+          border-bottom: 4px solid lighten($panel-border, 20%);
+        }
+      }
+    }
+  }
+
+
+  .public-account-bio {
+    @include panel-format();
+  }
+
   .status {
     padding: 15px;
   }
@@ -632,7 +665,7 @@ body.about-body {
 
 .account__header__content,
 .account__header .account__header__content {
-  color: lighten(saturate(adjust-hue($dark-text-color, -17deg), 12%), 35%);
+  color: $primary-text-color;
 
   .hashtag, .mention {
     color: $secondary-text-color;
@@ -682,8 +715,8 @@ body.about-body {
   }
 }
 
+.hero-widget__text,
 .landing .hero-widget__text {
-  padding-bottom: 10px;
   background: none;
 }
 
