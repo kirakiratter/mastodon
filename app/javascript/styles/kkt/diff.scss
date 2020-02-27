@@ -108,6 +108,25 @@ body.about-body {
 
 .contact-widget {
   @include panel-format();
+
+  h4 {
+    color: $primary-text-color;
+  }
+
+  a {
+    color: $highlight-text-color;
+  }
+}
+
+.table-of-contents {
+  @include panel-format;
+
+  li {
+    a {
+      color: $highlight-text-color;
+      border-bottom: 1px solid $panel-border;
+    }
+  }
 }
 
 .landing-page {
@@ -165,7 +184,8 @@ body.about-body {
 
 .simple_form,
 .rich-formatting {
-  a {
+  p a,
+  .input.boolean label a {
     text-decoration: none;
 
     &:hover {
@@ -191,6 +211,10 @@ body.about-body {
   .sidebar-wrapper {
     background: $ui-base-color;
     background-image: $base-color-diamonds;
+
+    &__inner {
+      background: none;
+    }
   }
 
   .content-wrapper {
@@ -327,7 +351,41 @@ body.about-body {
     }
   }
 
+  .directory__card {
+    @include panel-format();
 
+    &__img {
+      border-radius: 6px;
+    }
+
+    &__bar {
+      background: none;
+      border-bottom: 1px solid $panel-border;
+
+      .display-name strong {
+        color: $secondary-text-color;
+      }
+
+      .display-name span {
+        color: $primary-text-color;
+      }
+
+      .avatar {
+        @include avatar-radius();
+      }
+    }
+
+    &__extra {
+      background: none;
+
+      .account__header__content {
+        border-bottom: 1px solid $panel-border;
+      }
+    }
+  }
+
+  .endorsements-widget,
+  .placeholder-widget,
   .public-account-bio {
     @include panel-format();
   }
@@ -583,6 +641,14 @@ body.about-body {
 
 .getting-started {
   background: inherit;
+
+  &__trends {
+    @include panel-format;
+
+    h4 {
+      color: $primary-text-color;
+    }
+  }
 }
 
 .getting-started__wrapper {
@@ -779,6 +845,11 @@ body.about-body {
     &:hover {
       color: lighten($ui-highlight-color, 15%);
     }
+  }
+
+  &:hover,
+  &:active {
+    background: none;
   }
 
   &.overlayed {
