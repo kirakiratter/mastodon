@@ -838,6 +838,10 @@ body.about-body {
   background: $black-background;
 }
 
+.reduce-motion button.icon-button.active i.fa-retweet {
+  color: $ui-highlight-color !important;
+}
+
 .icon-button {
   &.active:not(.star-icon) {
     color: $ui-highlight-color;
@@ -974,6 +978,17 @@ body.about-body {
       span {
         color: $primary-text-color;
       }
+    }
+  }
+}
+
+.reply-indicator__content,
+.status__content {
+  a.status-link:not(.hashtag),
+  a.status-link:not(.mention) {
+    color: $highlight-text-color;
+    .unhandled-link {
+      color: $highlight-text-color;
     }
   }
 }
