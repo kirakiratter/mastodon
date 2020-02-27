@@ -705,13 +705,30 @@ body.about-body {
 .card .card__bio,
 .box-widget,
 .account__header__bar,
-.hero-widget {
+.hero-widget,
+.boost-modal,
+.confirmation-modal,
+.report-modal,
+.actions-modal,
+.mute-modal {
   @include panel-format();
 
   &.status-direct {
     &:not(.read) {
       @include panel-format();
     }
+  }
+}
+
+.boost-modal,
+.confirmation-modal,
+.report-modal,
+.actions-modal,
+.mute-modal {
+  color: $primary-text-color;
+
+  .status__content p {
+    color: $primary-text-color;
   }
 }
 
