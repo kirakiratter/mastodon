@@ -580,6 +580,9 @@ body.about-body {
   color: $secondary-text-color;
 }
 
+.status__expand {
+  width: 0;
+}
 
 .muted {
   .status__content p {
