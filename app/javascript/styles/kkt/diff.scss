@@ -250,6 +250,10 @@ body.about-body {
   margin-left: 25px;
   padding: 8px 0;
   color: $dark-text-color;
+
+  .fa {
+    color: $ui-highlight-color;
+  }
 }
 
 // Why the heck is this even a matcher
@@ -700,6 +704,14 @@ body.about-body {
 }
 
 .icon-button {
+  &.active {
+    color: $ui-highlight-color;
+
+    &:hover {
+      color: lighten($ui-highlight-color, 15%);
+    }
+  }
+
   &.overlayed {
     background: rgba($black, 0.4);
     color: $white;
