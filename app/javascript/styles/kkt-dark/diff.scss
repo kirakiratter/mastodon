@@ -645,7 +645,7 @@ body.about-body {
 }
 
 .compose-form__publish-button-wrapper > .button {
-  background: desaturate(darken($ui-base-color, 40%), 10%);
+  background: $ui-base-lighter-color;
 }
 
 .navigation-bar {

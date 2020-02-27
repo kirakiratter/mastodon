@@ -16,7 +16,7 @@ $error-value-color: #671160 !default;
 
 // Tell UI to use selected colors
 $ui-base-color: #313543 !default;                  // Darkest
-$ui-base-lighter-color: lighten($ui-base-color, 40%) !default; // Lighter darkest
+$ui-base-lighter-color: lighten($ui-base-color, 30%) !default; // Lighter darkest
 $ui-primary-color: #2588D0 !default;            // Lighter
 $ui-secondary-color: darken($ui-base-color, 10%) !default;        // Lightest
 $ui-highlight-color: #2588D0 !default;
