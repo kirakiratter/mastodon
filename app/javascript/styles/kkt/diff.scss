@@ -378,11 +378,15 @@ body.about-body {
     text-shadow: $panel-box-shadow;
     border-bottom: 0;
 
+    &:hover {
+      background: transparentize($white, 0.3);
+    }
+
     &.active {
       color: inherit;
       border-bottom: 0;
       text-shadow: none;
-      background: hsla(0,0%,100%,.3);
+      background: transparentize($white, 0.5);
     }
   }
 }
