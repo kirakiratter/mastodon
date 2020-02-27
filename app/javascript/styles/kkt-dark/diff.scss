@@ -297,8 +297,11 @@ body.about-body {
   }
 
   .public-account-header {
-
     &__bar {
+      &::before {
+        background: $panel-shadow;
+      }
+
       .avatar img {
         border-radius: 8px;
         border: 2px solid $panel-border;
@@ -488,7 +491,7 @@ body.about-body {
 .button.logo-button {
   background: darken($ui-base-color, 10%);
   &:hover {
-    background: $white;
+    background: $ui-base-lighter-color;
   }
 }
 

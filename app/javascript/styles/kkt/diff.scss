@@ -297,8 +297,11 @@ body.about-body {
   }
 
   .public-account-header {
-
     &__bar {
+      &::before {
+        background: $ui-base-color;
+      }
+
       .avatar img {
         border-radius: 8px;
         border: 2px solid $panel-border;
