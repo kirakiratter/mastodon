@@ -26,7 +26,7 @@ $primary-text-color: #7b5d4d !default;
 $darker-text-color: #6a4643 !default;
 $dark-text-color: #8e9956 !default;
 $secondary-text-color: #ed649c !default;
-$highlight-text-color: $ui-highlight-color !default;
+$highlight-text-color: #8e9956 !default;
 $action-button-color: lighten(desaturate($darker-text-color, 5%), 12%) !default;
 
 // For texts on inverted backgrounds
@@ -64,4 +64,3 @@ $muted-balloon-tail: url("data:image/svg+xml,%3Csvg width='12' height='14' xmlns
 
 $black-background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.8));
 $white-background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.7) 65%, rgba(255,255,255,0.8));
-

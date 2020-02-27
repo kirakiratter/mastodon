@@ -58,3 +58,17 @@ yarn-debug.log
 # Ignore Docker option files
 docker-compose.override.yml
 
+app/javascript/styles/contrast.scss
+app/javascript/styles/contrast/diff.scss
+app/javascript/styles/contrast/variables.scss
+app/javascript/styles/mailer.scss
+app/javascript/styles/mastodon-light.scss
+app/javascript/styles/mastodon-light/diff.scss
+app/javascript/styles/mastodon-light/variables.scss
+app/javascript/styles/contrast.scss
+app/javascript/styles/contrast/diff.scss
+app/javascript/styles/contrast/variables.scss
+app/javascript/styles/mailer.scss
+app/javascript/styles/mastodon-light.scss
+app/javascript/styles/mastodon-light/diff.scss
+app/javascript/styles/mastodon-light/variables.scss
