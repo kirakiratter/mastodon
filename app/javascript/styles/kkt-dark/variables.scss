@@ -1,6 +1,6 @@
 // Commonly used web colors
-$black: #000000;            // Black
-$white: #3a3a3a;            // White
+$black: #000000;                     // Black
+$white: #3a3a3a;                     // All-new GRAY edition
 $success-green: #79bd9a !default;    // Padua
 $error-red: #671160 !default;        // Cerise
 $warning-red: #671160 !default;      // Sunset Orange
@@ -12,14 +12,14 @@ $base-overlay-background: transparentize($black, 0.7) !default;
 $base-border-color: $white !default;
 $simple-background-color: $white !default;
 $valid-value-color: $success-green !default;
-$error-value-color: #671160 !default;
+$error-value-color: #671160 !default; //Changed to purple
 
 // Tell UI to use selected colors
-$ui-base-color: #313543 !default;                  // Darkest
-$ui-base-lighter-color: lighten($ui-base-color, 30%) !default; // Lighter darkest
-$ui-primary-color: #2588D0 !default;            // Lighter
-$ui-secondary-color: darken($ui-base-color, 10%) !default;        // Lightest
-$ui-highlight-color: #2588D0 !default;
+$ui-base-color: #313543 !default;                                 // Dark
+$ui-base-lighter-color: lighten($ui-base-color, 30%) !default;    // Lighter dark
+$ui-primary-color: #2588D0 !default;                              // Strong Blue
+$ui-secondary-color: darken($ui-base-color, 10%) !default;        // Darkest
+$ui-highlight-color: #443ae4 !default;                            // Bit purple-y
 
 // Variables for texts
 $primary-text-color: #FFF !default;
@@ -60,7 +60,7 @@ $highlight-color-diamonds: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.o
 
 $balloon-tail: url("data:image/svg+xml,%3Csvg width='12' height='14' xmlns='http://www.w3.org/2000/svg'%3E %3Cline id='svg_1' y2='12.412' x2='10.03575' y1='0.833' x1='10.03575' stroke-miterlimit='10' stroke-width='2' stroke='#{hex-color($panel-shadow)}' fill='none'/%3E %3Cpath id='svg_2' d='m9.76,1c0,0 -4.8235,0.92675 -8,5.833c5.42675,1 8,5.334 8,5.334' stroke-miterlimit='10' stroke-linecap='round' stroke-width='2' stroke='#{hex-color($panel-border)}' fill='#{hex-color($panel-shadow)}'/%3E %3C/svg%3E");
 
-$muted-balloon-tail: url("data:image/svg+xml,%3Csvg width='12' height='14' xmlns='http://www.w3.org/2000/svg'%3E %3Cline id='svg_1' y2='12.412' x2='10.03575' y1='0.833' x1='10.03575' stroke-miterlimit='10' stroke-width='2' stroke='#{hex-color($panel-shadow)}' fill='none'/%3E %3Cpath id='svg_2' d='m9.76,1c0,0 -4.8235,0.92675 -8,5.833c5.42675,1 8,5.334 8,5.334' stroke-miterlimit='10' stroke-linecap='round' stroke-width='2' stroke='#{hex-color($panel-shadow)}' fill='#{hex-color($panel-shadow)}'/%3E %3C/svg%3E");
+$muted-balloon-tail: url("data:image/svg+xml,%3Csvg width='12' height='14' xmlns='http://www.w3.org/2000/svg'%3E %3Cline id='svg_1' y2='12.412' x2='10.03575' y1='0.833' x1='10.03575' stroke-miterlimit='10' stroke-width='2' stroke='#{hex-color($panel-shadow)}' fill='none'/%3E %3Cpath id='svg_2' d='m9.76,1c0,0 -4.8235,0.92675 -8,5.833c5.42675,1 8,5.334 8,5.334' stroke-miterlimit='10' stroke-linecap='round' stroke-width='2' stroke='#{hex-color($panel-border)}' fill='#{hex-color($panel-shadow)}'/%3E %3C/svg%3E");
 
 $black-background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.8));
 $white-background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.7) 65%, rgba(255,255,255,0.8));
