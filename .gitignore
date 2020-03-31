@@ -72,3 +72,7 @@ app/javascript/styles/mailer.scss
 app/javascript/styles/mastodon-light.scss
 app/javascript/styles/mastodon-light/diff.scss
 app/javascript/styles/mastodon-light/variables.scss
+app/javascript/styles/sass.bat
+app/javascript/styles/src/dart.exe
+app/javascript/styles/src/LICENSE
+app/javascript/styles/src/sass.dart.snapshot
