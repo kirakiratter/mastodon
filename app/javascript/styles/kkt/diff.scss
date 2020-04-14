@@ -1,5 +1,3 @@
-@import 'banner';
-
 // Change the colors of button texts
 .button {
   color: $white;
@@ -92,8 +90,6 @@ body.app-body,
   input[type=email],
   input[type=password],
   textarea {
-    border-bottom-color: $primary-text-color;
-
     &:active,
     &:focus {
       border-bottom-color: $highlight-text-color;
@@ -106,6 +102,29 @@ body.app-body,
 body.about-body {
   background: $ui-base-color;
   background-image: $base-color-diamonds;
+}
+
+.contact-widget {
+  @include panel-format();
+
+  h4 {
+    color: $primary-text-color;
+  }
+
+  a {
+    color: $highlight-text-color;
+  }
+}
+
+.table-of-contents {
+  @include panel-format;
+
+  li {
+    a {
+      color: $highlight-text-color;
+      border-bottom: 1px solid $panel-border;
+    }
+  }
 }
 
 .landing-page {
@@ -126,6 +145,10 @@ body.about-body {
   &__information,
   &__call-to-action {
     @include panel-format();
+
+    &.contact-widget {
+      @include panel-format();
+    }
   }
 
   &__forms {
@@ -157,6 +180,26 @@ body.about-body {
   }
 }
 
+.simple_form,
+.rich-formatting {
+  p a,
+  .input.boolean label a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.directory {
+  &__tag {
+    a {
+      @include panel-format();
+    }
+  }
+}
+
 // Admin page
 .admin-wrapper {
   .sidebar {
@@ -166,6 +209,10 @@ body.about-body {
   .sidebar-wrapper {
     background: $ui-base-color;
     background-image: $base-color-diamonds;
+
+    &__inner {
+      background: none;
+    }
   }
 
   .content-wrapper {
@@ -225,6 +272,10 @@ body.about-body {
   margin-left: 25px;
   padding: 8px 0;
   color: $dark-text-color;
+
+  .fa:not(.star-icon) {
+    color: $ui-highlight-color;
+  }
 }
 
 // Why the heck is this even a matcher
@@ -236,7 +287,7 @@ body.about-body {
   color: $dark-text-color;
 }
 
-.public-layout .footer .brand svg {
+.public-layout .footer .brand svg path {
   fill: default !important; // Set to some invalid color
 }
 
@@ -244,6 +295,97 @@ body.about-body {
 .public-layout {
   .footer {
     color: $dark-text-color;
+  }
+
+  .header {
+    background-color: $ui-highlight-color;
+    background-image: $highlight-color-diamonds;
+    border-bottom: solid 2px $panel-shadow;
+
+    .nav-link {
+      color: $darker-text-color;
+      text-shadow: $panel-box-shadow;
+
+      &.nav-button {
+        text-shadow: none;
+      }
+
+      &:hover {
+        background: transparentize($white, 0.3);
+        text-shadow: none;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .public-account-header {
+    &__bar {
+      &::before {
+        background: $ui-base-color;
+      }
+
+      .avatar img {
+        border-radius: 8px;
+        border: 2px solid $panel-border;
+      }
+    }
+
+    &__tabs__tabs {
+      .counter {
+        border-right: none;
+
+        &.active::after {
+          border-bottom: 4px solid $panel-border;
+        }
+
+        &:hover::after {
+          border-bottom: 4px solid lighten($panel-border, 10%);
+        }
+
+        &::after {
+          border-bottom: 4px solid lighten($panel-border, 20%);
+        }
+      }
+    }
+  }
+
+  .directory__card {
+    @include panel-format();
+
+    &__img {
+      border-radius: 6px;
+    }
+
+    &__bar {
+      background: none;
+      border-bottom: 1px solid $panel-border;
+
+      .display-name strong {
+        color: $secondary-text-color;
+      }
+
+      .display-name span {
+        color: $primary-text-color;
+      }
+
+      .avatar {
+        @include avatar-radius();
+      }
+    }
+
+    &__extra {
+      background: none;
+
+      .account__header__content {
+        border-bottom: 1px solid $panel-border;
+      }
+    }
+  }
+
+  .endorsements-widget,
+  .placeholder-widget,
+  .public-account-bio {
+    @include panel-format();
   }
 
   .status {
@@ -269,7 +411,9 @@ body.about-body {
 .account__avatar-overlay-base,
 .account__avatar-overlay-overlay,
 .activity-stream .status.light .status__avatar,
-.activity-stream .detailed-status.light .avatar
+.activity-stream .detailed-status.light .avatar,
+.account__avatar-composite,
+.account__avatar-composite div
 {
   border: solid 2px $panel-border;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
@@ -291,6 +435,7 @@ body.about-body {
   &__header {
     padding-left: 83px;
     border-bottom: solid 2px $panel-shadow;
+    margin-bottom: 0px;
 
     a {
       &:hover {
@@ -331,11 +476,15 @@ body.about-body {
     text-shadow: $panel-box-shadow;
     border-bottom: 0;
 
+    &:hover {
+      background: transparentize($white, 0.3);
+    }
+
     &.active {
       color: inherit;
       border-bottom: 0;
       text-shadow: none;
-      background: hsla(0,0%,100%,.3);
+      background: transparentize($white, 0.5);
     }
   }
 }
@@ -361,7 +510,7 @@ body.about-body {
 
 .empty-column-indicator,
 .column>.scrollable {
-  background: hsla(71,42%,77%,.5);
+  background: transparentize($ui-base-lighter-color, 0.9);
 }
 
 .column-header,
@@ -372,6 +521,14 @@ body.about-body {
   font-weight: bold;
   background: desaturate(darken($ui-base-color, 12%),18%);
   color: $primary-text-color;
+}
+
+.column-header {
+  &.active {
+    .column-header__icon {
+      color: $ui-highlight-color;
+    }
+  }
 }
 
 .compose-form .compose-form__buttons-wrapper {
@@ -406,6 +563,7 @@ body.about-body {
   background: $ui-primary-color;
 
   &:hover {
+    color: $white;
     background: lighten($ui-primary-color, 6%);
   }
 }
@@ -420,9 +578,15 @@ body.about-body {
   color: $secondary-text-color;
 }
 
+.status__expand {
+  width: 0;
+}
 
 .muted {
-  .status__content p,
+  .status__content p {
+    color: lighten($primary-text-color, 15%);
+  }
+
   .status__content a,
   .display-name__account
   {
@@ -478,6 +642,14 @@ body.about-body {
 
 .getting-started {
   background: inherit;
+
+  &__trends {
+    @include panel-format;
+
+    h4 {
+      color: $primary-text-color;
+    }
+  }
 }
 
 .getting-started__wrapper {
@@ -543,7 +715,7 @@ body.about-body {
 }
 
 .compose-form__publish-button-wrapper > .button {
-  background: desaturate(darken($ui-base-color, 40%), 10%);
+  background: $ui-base-lighter-color;
 }
 
 .navigation-bar {
@@ -571,7 +743,7 @@ body.about-body {
 
 .account__header__content,
 .account__header .account__header__content {
-  color: lighten(saturate(adjust-hue($dark-text-color, -17deg), 12%), 35%);
+  color: $primary-text-color;
 
   .hashtag, .mention {
     color: $secondary-text-color;
@@ -611,12 +783,35 @@ body.about-body {
 .card .card__bio,
 .box-widget,
 .account__header__bar,
-.hero-widget {
+.hero-widget,
+.boost-modal,
+.confirmation-modal,
+.report-modal,
+.actions-modal,
+.mute-modal {
   @include panel-format();
+
+  &.status-direct {
+    &:not(.read) {
+      @include panel-format();
+    }
+  }
 }
 
+.boost-modal,
+.confirmation-modal,
+.report-modal,
+.actions-modal,
+.mute-modal {
+  color: $primary-text-color;
+
+  .status__content p {
+    color: $primary-text-color;
+  }
+}
+
+.hero-widget__text,
 .landing .hero-widget__text {
-  padding-bottom: 10px;
   background: none;
 }
 
@@ -645,6 +840,19 @@ body.about-body {
 }
 
 .icon-button {
+  &.active:not(.star-icon) {
+    color: $ui-highlight-color;
+
+    &:hover {
+      color: lighten($ui-highlight-color, 15%);
+    }
+  }
+
+  &:hover,
+  &:active {
+    background: none;
+  }
+
   &.overlayed {
     background: rgba($black, 0.4);
     color: $white;
@@ -771,6 +979,16 @@ body.about-body {
   }
 }
 
+.reply-indicator__content,
+.status__content {
+  p a:not(.hashtag):not(.mention) {
+    color: $highlight-text-color;
+    .unhandled-link {
+      color: $highlight-text-color;
+    }
+  }
+}
+
 .react-toggle-track {
   background-color: $ui-base-lighter-color;
 }
@@ -843,4 +1061,3 @@ body.about-body {
 .dashboard__widgets a:not(.name-tag) {
   color: $ui-primary-color;
 }
-

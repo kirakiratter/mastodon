@@ -62,3 +62,4 @@ ubuntu-xenial-16.04-cloudimg-console.log
 
 # Ignore Docker option files
 docker-compose.override.yml
+ubuntu-bionic-18.04-cloudimg-console.log

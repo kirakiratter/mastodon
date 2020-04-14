@@ -1,6 +1,6 @@
 // Commonly used web colors
 $black: #000000;            // Black
-$white: #ffffff;            // White
+$white: #FFF;            // White
 $success-green: #79bd9a !default;    // Padua
 $error-red: #df405a !default;        // Cerise
 $warning-red: #ff5050 !default;      // Sunset Orange
@@ -9,40 +9,40 @@ $gold-star: #ca8f04 !default;        // Dark Goldenrod
 // Variables for defaults in UI
 $base-shadow-color: $black !default;
 $base-overlay-background: transparentize($black, 0.7) !default;
-$base-border-color: $white !default;
-$simple-background-color: $white !default;
+$base-border-color: #fff9e4 !default;
+$simple-background-color: #fff9e4 !default;
 $valid-value-color: $success-green !default;
 $error-value-color: $error-red !default;
 
 // Tell UI to use selected colors
-$ui-base-color: #ecf5be !default;                  // Darkest
-$ui-base-lighter-color: darken($ui-base-color, 40%) !default; // Lighter darkest
-$ui-primary-color: #ed649c !default;            // Lighter
-$ui-secondary-color: #ecf5be !default;        // Lightest
-$ui-highlight-color: #e46bac !default;
+$ui-base-color: #fbcdd4 !default;                  // Darkest
+$ui-base-lighter-color: darken($ui-base-color, 20%) !default; // Lighter darkest
+$ui-primary-color: #fcead6 !default;            // Lighter
+$ui-secondary-color: #dcd2eb !default;        // Lightest
+$ui-highlight-color: #ffb389 !default;
 
 // Variables for texts
-$primary-text-color: #7b5d4d !default;
-$darker-text-color: #6a4643 !default;
-$dark-text-color: #8e9956 !default;
-$secondary-text-color: #ed649c !default;
-$highlight-text-color: #8e9956 !default;
-$action-button-color: lighten(desaturate($darker-text-color, 5%), 12%) !default;
+$primary-text-color: #c24d37 !default;
+$darker-text-color: #d6ab70 !default;
+$dark-text-color: #246db6 !default;
+$secondary-text-color: #3c87bd !default;
+$highlight-text-color: #fc7eb2 !default;
+$action-button-color: lighten($primary-text-color, 12%) !default;
 
 // For texts on inverted backgrounds
-$inverted-text-color: $black !default;
+$inverted-text-color: darken(saturate($darker-text-color, 15%), 10%) !default;
 $lighter-text-color: $primary-text-color !default;
 $light-text-color: $darker-text-color !default;
 
 // Custom
-$scrollbar-color: #7b5d4d;
-$panel-border: #e1c152;
-$panel-shadow: #f5e33a;
+$scrollbar-color: #9185b6;
+$panel-border: #fc7eb2;
+$panel-shadow: #e9c9aa;
 
-$banner-color: #f5e33a;
-$banner-shadow: #7b5d4d;
+$banner-color: #fc7eb2;
+$banner-shadow: #FFF;
 
-$panel-background: linear-gradient(to bottom, desaturate(lighten($panel-shadow, 35%), 10%) 0%, desaturate(lighten($panel-shadow, 35%), 10%) 65%, desaturate(lighten($panel-shadow, 25%), 5%) 100%);
+$panel-background: linear-gradient(to bottom, desaturate(lighten(#82bedd, 35%), 10%) 0%, desaturate(lighten(#82bedd, 35%), 10%) 65%, desaturate(lighten(#82bedd, 25%), 5%) 100%);
 
 $panel-box-shadow: -1px -1px 0 $panel-shadow, 1px -1px 0 $panel-shadow, -1px 1px 0 $panel-shadow, 1px 1px 0 $panel-shadow;
 
@@ -56,7 +56,7 @@ $panel-box-shadow: -1px -1px 0 $panel-shadow, 1px -1px 0 $panel-shadow, -1px 1px
 
 $base-color-diamonds: url("data:image/svg+xml,%3Csvg xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns='http://www.w3.org/2000/svg' xmlns:cc='http://creativecommons.org/ns%23' xmlns:dc='http://purl.org/dc/elements/1.1/' height='114' viewBox='0 0 80 114' width='80' version='1.1'%3E %3Crect height='114' width='80' y='0' x='0' fill='#{hex-color($ui-base-color)}'/%3E %3Cpath fill='#{hex-color(desaturate(darken($ui-base-color, 10%), 5%))}' d='m0 57 40-57 40 57-40 57z'/%3E %3C/svg%3E");
 
-$highlight-color-diamonds: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='28' width='20'%3E%3Crect height='28' width='20' y='0' x='0' fill='#{hex-color($ui-highlight-color)}'/%3E%3Cpath d='m0 14 10-14 10 14-10 14z' fill='#{hex-color(darken($ui-highlight-color, 5%))}'/%3E%3C/svg%3E");
+$highlight-color-diamonds: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='28' width='20'%3E%3Crect height='28' width='20' y='0' x='0' fill='#{hex-color($ui-primary-color)}'/%3E%3Cpath d='m0 14 10-14 10 14-10 14z' fill='#{hex-color(darken($ui-primary-color, 5%))}'/%3E%3C/svg%3E");
 
 $balloon-tail: url("data:image/svg+xml,%3Csvg width='12' height='14' xmlns='http://www.w3.org/2000/svg'%3E %3Cline id='svg_1' y2='12.412' x2='10.03575' y1='0.833' x1='10.03575' stroke-miterlimit='10' stroke-width='2' stroke='#{hex-color(desaturate(lighten($panel-shadow, 35%), 10%))}' fill='none'/%3E %3Cpath id='svg_2' d='m9.76,1c0,0 -4.8235,0.92675 -8,5.833c5.42675,1 8,5.334 8,5.334' stroke-miterlimit='10' stroke-linecap='round' stroke-width='2' stroke='#{hex-color($panel-border)}' fill='#{hex-color(desaturate(lighten($panel-shadow, 35%), 10%))}'/%3E %3C/svg%3E");
 

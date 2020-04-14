@@ -1,0 +1,21 @@
+.button.logo-button {
+  &:hover {
+    background: $ui-base-lighter-color;
+  }
+}
+
+.muted {
+  .status__content p {
+    color: darken($primary-text-color, 35%);
+  }
+
+  .status__content a,
+  .display-name__account
+  {
+    color: darken($dark-text-color, 15%);
+  }
+}
+
+.reduce-motion button.icon-button.active i.fa-retweet {
+  color: $ui-highlight-color;
+}

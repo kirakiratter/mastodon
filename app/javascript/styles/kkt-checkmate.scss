@@ -2,9 +2,10 @@
 // and other contributors: @pomo, @sumire, @bitmap, @hisagi, @lae, @takenoko, @unarist
 //
 // https://github.com/MasterDalK/kktCSS
-@import 'kkt/variables';
+@import 'kkt-checkmate/variables';
 @import 'kkt/_mixins';
 @import 'application';
 @import 'kkt/boost';
 @import 'kkt/banner';
 @import 'kkt/diff';
+@import 'kkt-checkmate/diff';
