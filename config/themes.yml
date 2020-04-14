@@ -1,4 +1,7 @@
 default: styles/application.scss
 kkt: styles/kkt.scss
+kkt-angely: styles/kkt-angely.scss
+kkt-dark: styles/kkt-dark.scss
+kkt-checkmate: styles/kkt-checkmate.scss
 contrast: styles/contrast.scss
 mastodon-light: styles/mastodon-light.scss
