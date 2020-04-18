@@ -54,7 +54,8 @@ module.exports = merge(sharedConfig, {
     watchOptions: Object.assign(
       {},
       settings.dev_server.watch_options,
-      watchOptions
+      watchOptions,
     ),
+    writeToDisk: filePath => /ocr/.test(filePath),
   },
 });

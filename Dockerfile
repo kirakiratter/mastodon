@@ -3,24 +3,32 @@ FROM ubuntu:18.04 as build-dep
 # Use bash for the shell
 SHELL ["bash", "-c"]
 
-# Install Node
-ENV NODE_VER="8.15.0"
-RUN	echo "Etc/UTC" > /etc/localtime && \
+# Install Node v12 (LTS)
+ENV NODE_VER="12.16.1"
+RUN	ARCH= && \
+    dpkgArch="$(dpkg --print-architecture)" && \
+  case "${dpkgArch##*-}" in \
+    amd64) ARCH='x64';; \
+    ppc64el) ARCH='ppc64le';; \
+    s390x) ARCH='s390x';; \
+    arm64) ARCH='arm64';; \
+    armhf) ARCH='armv7l';; \
+    i386) ARCH='x86';; \
+    *) echo "unsupported architecture"; exit 1 ;; \
+  esac && \
+    echo "Etc/UTC" > /etc/localtime && \
 	apt update && \
-	apt -y dist-upgrade && \
-	apt -y install wget make gcc g++ python && \
+	apt -y install wget python && \
 	cd ~ && \
-	wget https://nodejs.org/download/release/v$NODE_VER/node-v$NODE_VER.tar.gz && \
-	tar xf node-v$NODE_VER.tar.gz && \
-	cd node-v$NODE_VER && \
-	./configure --prefix=/opt/node && \
-	make -j$(nproc) > /dev/null && \
-	make install
+	wget https://nodejs.org/download/release/v$NODE_VER/node-v$NODE_VER-linux-$ARCH.tar.gz && \
+	tar xf node-v$NODE_VER-linux-$ARCH.tar.gz && \
+	rm node-v$NODE_VER-linux-$ARCH.tar.gz && \
+	mv node-v$NODE_VER-linux-$ARCH /opt/node
 
 # Install jemalloc
-ENV JE_VER="5.1.0"
+ENV JE_VER="5.2.1"
 RUN apt update && \
-	apt -y install autoconf && \
+	apt -y install make autoconf gcc g++ && \
 	cd ~ && \
 	wget https://github.com/jemalloc/jemalloc/archive/$JE_VER.tar.gz && \
 	tar xf $JE_VER.tar.gz && \
@@ -30,8 +38,8 @@ RUN apt update && \
 	make -j$(nproc) > /dev/null && \
 	make install_bin install_include install_lib
 
-# Install ruby
-ENV RUBY_VER="2.6.1"
+# Install Ruby
+ENV RUBY_VER="2.6.6"
 ENV CPPFLAGS="-I/opt/jemalloc/include"
 ENV LDFLAGS="-L/opt/jemalloc/lib/"
 RUN apt update && \
@@ -61,7 +69,9 @@ RUN npm install -g yarn && \
 COPY Gemfile* package.json yarn.lock /opt/mastodon/
 
 RUN cd /opt/mastodon && \
-	bundle install -j$(nproc) --deployment --without development test && \
+  bundle config set deployment 'true' && \
+  bundle config set without 'development test' && \
+	bundle install -j$(nproc) && \
 	yarn install --pure-lockfile
 
 FROM ubuntu:18.04
@@ -80,13 +90,12 @@ ARG GID=991
 RUN apt update && \
 	echo "Etc/UTC" > /etc/localtime && \
 	ln -s /opt/jemalloc/lib/* /usr/lib/ && \
-	apt -y dist-upgrade && \
 	apt install -y whois wget && \
 	addgroup --gid $GID mastodon && \
 	useradd -m -u $UID -g $GID -d /opt/mastodon mastodon && \
 	echo "mastodon:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -s -m sha-256`" | chpasswd
 
-# Install masto runtime deps
+# Install mastodon runtime deps
 RUN apt -y --no-install-recommends install \
 	  libssl1.1 libpq5 imagemagick ffmpeg \
 	  libicu60 libprotobuf10 libidn11 libyaml-0-2 \
@@ -95,7 +104,7 @@ RUN apt -y --no-install-recommends install \
 	ln -s /opt/mastodon /mastodon && \
 	gem install bundler && \
 	rm -rf /var/cache && \
-	rm -rf /var/lib/apt
+	rm -rf /var/lib/apt/lists/*
 
 # Add tini
 ENV TINI_VERSION="0.18.0"
@@ -104,16 +113,17 @@ ADD https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini /tin
 RUN echo "$TINI_SUM tini" | sha256sum -c -
 RUN chmod +x /tini
 
-# Copy over masto source, and dependencies from building, and set permissions
+# Copy over mastodon source, and dependencies from building, and set permissions
 COPY --chown=mastodon:mastodon . /opt/mastodon
 COPY --from=build-dep --chown=mastodon:mastodon /opt/mastodon /opt/mastodon
 
-# Run masto services in prod mode
+# Run mastodon services in prod mode
 ENV RAILS_ENV="production"
 ENV NODE_ENV="production"
 
 # Tell rails to serve static files
 ENV RAILS_SERVE_STATIC_FILES="true"
+ENV BIND="0.0.0.0"
 
 # Set the run user
 USER mastodon
@@ -126,3 +136,4 @@ RUN cd ~ && \
 # Set the work dir and the container entry point
 WORKDIR /opt/mastodon
 ENTRYPOINT ["/tini", "--"]
+EXPOSE 3000 4000

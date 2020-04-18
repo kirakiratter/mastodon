@@ -1,4 +1,7 @@
 import {
+  NOTIFICATIONS_UPDATE,
+} from '../actions/notifications';
+import {
   FOLLOWERS_FETCH_SUCCESS,
   FOLLOWERS_EXPAND_SUCCESS,
   FOLLOWING_FETCH_SUCCESS,
@@ -20,6 +23,14 @@ import {
   MUTES_FETCH_SUCCESS,
   MUTES_EXPAND_SUCCESS,
 } from '../actions/mutes';
+import {
+  DIRECTORY_FETCH_REQUEST,
+  DIRECTORY_FETCH_SUCCESS,
+  DIRECTORY_FETCH_FAIL,
+  DIRECTORY_EXPAND_REQUEST,
+  DIRECTORY_EXPAND_SUCCESS,
+  DIRECTORY_EXPAND_FAIL,
+} from 'mastodon/actions/directory';
 import { Map as ImmutableMap, List as ImmutableList } from 'immutable';
 
 const initialState = ImmutableMap({
@@ -45,6 +56,12 @@ const appendToList = (state, type, id, accounts, next) => {
   });
 };
 
+const normalizeFollowRequest = (state, notification) => {
+  return state.updateIn(['follow_requests', 'items'], list => {
+    return list.filterNot(item => item === notification.account.id).unshift(notification.account.id);
+  });
+};
+
 export default function userLists(state = initialState, action) {
   switch(action.type) {
   case FOLLOWERS_FETCH_SUCCESS:
@@ -59,6 +76,8 @@ export default function userLists(state = initialState, action) {
     return state.setIn(['reblogged_by', action.id], ImmutableList(action.accounts.map(item => item.id)));
   case FAVOURITES_FETCH_SUCCESS:
     return state.setIn(['favourited_by', action.id], ImmutableList(action.accounts.map(item => item.id)));
+  case NOTIFICATIONS_UPDATE:
+    return action.notification.type === 'follow_request' ? normalizeFollowRequest(state, action.notification) : state;
   case FOLLOW_REQUESTS_FETCH_SUCCESS:
     return state.setIn(['follow_requests', 'items'], ImmutableList(action.accounts.map(item => item.id))).setIn(['follow_requests', 'next'], action.next);
   case FOLLOW_REQUESTS_EXPAND_SUCCESS:
@@ -74,6 +93,16 @@ export default function userLists(state = initialState, action) {
     return state.setIn(['mutes', 'items'], ImmutableList(action.accounts.map(item => item.id))).setIn(['mutes', 'next'], action.next);
   case MUTES_EXPAND_SUCCESS:
     return state.updateIn(['mutes', 'items'], list => list.concat(action.accounts.map(item => item.id))).setIn(['mutes', 'next'], action.next);
+  case DIRECTORY_FETCH_SUCCESS:
+    return state.setIn(['directory', 'items'], ImmutableList(action.accounts.map(item => item.id))).setIn(['directory', 'isLoading'], false);
+  case DIRECTORY_EXPAND_SUCCESS:
+    return state.updateIn(['directory', 'items'], list => list.concat(action.accounts.map(item => item.id))).setIn(['directory', 'isLoading'], false);
+  case DIRECTORY_FETCH_REQUEST:
+  case DIRECTORY_EXPAND_REQUEST:
+    return state.setIn(['directory', 'isLoading'], true);
+  case DIRECTORY_FETCH_FAIL:
+  case DIRECTORY_EXPAND_FAIL:
+    return state.setIn(['directory', 'isLoading'], false);
   default:
     return state;
   }

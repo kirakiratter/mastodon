@@ -117,17 +117,14 @@
     }
 
     .brand {
-      svg {
+      svg, img {
         display: block;
         height: 36px;
         width: auto;
         margin: 0 auto;
-
         // This messes with kirakiratter's logo since it has inner shapes
         /*
-        path {
-          fill: lighten($ui-base-color, 34%);
-        }
+        fill: lighten($ui-base-color, 34%);
         */
       }
 
@@ -136,7 +133,7 @@
       &:hover,
       &:focus,
       &:active {
-        svg path {
+        svg {
           fill: lighten($ui-base-color, 38%);
         }
       }

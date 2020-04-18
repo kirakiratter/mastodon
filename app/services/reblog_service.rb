@@ -2,12 +2,14 @@
 
 class ReblogService < BaseService
   include Authorization
-  include StreamEntryRenderer
+  include Payloadable
 
   # Reblog a status and notify its remote author
   # @param [Account] account Account to reblog from
   # @param [Status] reblogged_status Status to be reblogged
   # @param [Hash] options
+  # @option [String]  :visibility
+  # @option [Boolean] :with_rate_limit
   # @return [Status]
   def call(account, reblogged_status, options = {})
     reblogged_status = reblogged_status.reblog if reblogged_status.reblog?
@@ -18,10 +20,17 @@ class ReblogService < BaseService
 
     return reblog unless reblog.nil?
 
-    reblog = account.statuses.create!(reblog: reblogged_status, text: '', visibility: options[:visibility] || account.user&.setting_default_privacy)
+    visibility = begin
+      if reblogged_status.hidden?
+        reblogged_status.visibility
+      else
+        options[:visibility] || account.user&.setting_default_privacy
+      end
+    end
+
+    reblog = account.statuses.create!(reblog: reblogged_status, text: '', visibility: visibility, rate_limit: options[:with_rate_limit])
 
     DistributionWorker.perform_async(reblog.id)
-    Pubsubhubbub::DistributionWorker.perform_async(reblog.stream_entry.id)
     ActivityPub::DistributionWorker.perform_async(reblog.id)
 
     create_notification(reblog)
@@ -37,8 +46,6 @@ class ReblogService < BaseService
 
     if reblogged_status.account.local?
       LocalNotificationWorker.perform_async(reblogged_status.account_id, reblog.id, reblog.class.name)
-    elsif reblogged_status.account.ostatus?
-      NotificationWorker.perform_async(stream_entry_to_xml(reblog.stream_entry), reblog.account_id, reblogged_status.account_id)
     elsif reblogged_status.account.activitypub? && !reblogged_status.account.following?(reblog.account)
       ActivityPub::DeliveryWorker.perform_async(build_json(reblog), reblog.account_id, reblogged_status.account.inbox_url)
     end
@@ -46,15 +53,13 @@ class ReblogService < BaseService
 
   def bump_potential_friendship(account, reblog)
     ActivityTracker.increment('activity:interactions')
+
     return if account.following?(reblog.reblog.account_id)
+
     PotentialFriendshipTracker.record(account.id, reblog.reblog.account_id, :reblog)
   end
 
   def build_json(reblog)
-    Oj.dump(ActivityPub::LinkedDataSignature.new(ActiveModelSerializers::SerializableResource.new(
-      reblog,
-      serializer: ActivityPub::ActivitySerializer,
-      adapter: ActivityPub::Adapter
-    ).as_json).sign!(reblog.account))
+    Oj.dump(serialize_payload(reblog, ActivityPub::ActivitySerializer, signer: reblog.account))
   end
 end

@@ -1,0 +1,68 @@
+// Change the text colors on inverted background
+.privacy-dropdown__option.active .privacy-dropdown__option__content,
+.privacy-dropdown__option.active .privacy-dropdown__option__content strong,
+.privacy-dropdown__option:hover .privacy-dropdown__option__content,
+.privacy-dropdown__option:hover .privacy-dropdown__option__content strong,
+.dropdown-menu__item a:active,
+.dropdown-menu__item a:focus,
+.dropdown-menu__item a:hover,
+.actions-modal ul li:not(:empty) a.active,
+.actions-modal ul li:not(:empty) a.active button,
+.actions-modal ul li:not(:empty) a:active,
+.actions-modal ul li:not(:empty) a:active button,
+.actions-modal ul li:not(:empty) a:focus,
+.actions-modal ul li:not(:empty) a:focus button,
+.actions-modal ul li:not(:empty) a:hover,
+.actions-modal ul li:not(:empty) a:hover button,
+.admin-wrapper .sidebar ul ul a.selected,
+.simple_form .block-button,
+.simple_form .button,
+.simple_form button {
+  color: $primary-text-color;
+}
+
+// Admin page
+.admin-wrapper {
+  .sidebar {
+    ul a {
+      color: darken($darker-text-color, 20%);
+    }
+  }
+}
+
+.embed,
+.public-layout {
+  .header {
+    .nav-link {
+      color: $primary-text-color;
+    }
+  }
+}
+
+.drawer {
+  &__tab {
+    color: $primary-text-color;
+
+    &:hover {
+      color: $darker-text-color;
+    }
+  }
+}
+
+.tabs-bar {
+  &__link {
+    color: $primary-text-color;
+
+    &.active {
+      color: $darker-text-color;
+    }
+  }
+}
+
+.navigation-bar {
+  color: darken($ui-secondary-color,15%);
+
+  strong {
+    color: lighten($primary-text-color,10%);
+  }
+}
