@@ -218,6 +218,10 @@ body.about-body {
   .content-wrapper {
     background: $panel-background;
   }
+
+  .recommended {
+    color: $dark-text-color;
+  }
 }
 
 .simple_form .warning, .table-form .warning {
