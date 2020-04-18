@@ -306,6 +306,10 @@ body.about-body {
     background-image: $highlight-color-diamonds;
     border-bottom: solid 2px $panel-shadow;
 
+    .brand {
+      background: transparentize($white, 0.6);
+    }
+
     .nav-link {
       color: $darker-text-color;
       text-shadow: $panel-box-shadow;
