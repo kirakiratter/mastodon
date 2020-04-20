@@ -12,7 +12,10 @@ module ThemeHelper
     'mastodon' => '#282c37',
     'contrast' => '#282c37',
     'mastodon-light' => '#282c37',
-    'kkt' => '#df57a4'
+    'kkt' => '#df57a4',
+    'kkt-angely' => '#eb9fa9',
+    'kkt-dark' => '#1a1a1a',
+    'kkt-checkmate' => '#050505'
   }.freeze
 
   # For Android tab color
